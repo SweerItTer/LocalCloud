@@ -1,0 +1,43 @@
+# 更新后的 docker-compose.yml
+version: '3.8'
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"  # 生产模式用80端口
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8080  # Vite环境变量
+    depends_on:
+      - backend
+
+  backend:
+    build: 
+      context: ./backend
+      target: dev  # 开发阶段用air热重载
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend:/go/src/app
+    environment:
+      - GIN_MODE=debug
+      - MINIO_ENDPOINT=minio:9000
+      - MINIO_ACCESS_KEY=admin
+      - MINIO_SECRET_KEY=password123
+    depends_on:
+      - minio
+
+  minio:
+    image: minio/minio
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=password123
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+
+volumes:
+  minio_data:
