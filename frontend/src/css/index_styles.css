@@ -1,0 +1,175 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    background-color: #121212; /* 深色背景 */
+    color: #E0E0E0; /* 文字浅色 */
+    line-height: 1.8; /* 让文本更舒适 */
+}
+
+/* 顶部导航栏 */
+header {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #BB86FC;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #BB86FC;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+header nav ul li a:hover {
+    color: #FFFFFF;
+}
+/* 用户菜单 */
+.user-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-menu img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #BB86FC;
+    margin-left: 20px;
+    transition: transform 0.3s ease;
+}
+
+.user-menu img:hover {
+    transform: scale(1.1);
+}
+/* 修复 GitHub 登录按钮 */
+.dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: #1E1E1E;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(255, 255, 255, 0.1);
+    min-width: 120px;
+    z-index: 10;
+}
+
+/* 默认隐藏下拉菜单 */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background: #1E1E1E;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(255, 255, 255, 0.1);
+    min-width: 120px;
+    z-index: 10;
+}
+
+/* 显示下拉菜单 */
+.dropdown-menu.show {
+    display: block !important;
+}
+
+/* 主体内容 */
+main {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* README 内容 */
+.readme-content {
+    background: #1E1E1E;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* 标题间距 */
+.readme-content h1, 
+.readme-content h2, 
+.readme-content h3 {
+    color: #FFFFFF;
+    margin-bottom: 12px;
+}
+
+/* 文字行距 */
+.readme-content p {
+    line-height: 1.8; /* 增加行间距 */
+    color: #E0E0E0;
+    margin-bottom: 12px; /* 让段落之间有空间 */
+}
+
+/* 列表间距 */
+.readme-content ul, .readme-content ol {
+    margin: 12px 0;
+    padding-left: 25px;
+}
+
+/* 代码块美化 */
+.readme-content pre {
+    background: #292929;
+    padding: 12px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 16px 0; /* 让代码块与其他内容分开 */
+}
+
+/* 代码高亮 */
+.readme-content code {
+    background: #333;
+    padding: 4px 6px;
+    border-radius: 5px;
+    font-family: "Courier New", monospace;
+    color: #FFCC00;
+}
+
+/* 超链接优化 */
+.readme-content a {
+    color: #BB86FC;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.readme-content a:hover {
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+
+/* 底部 */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #1E1E1E;
+    color: white;
+    border-top: 2px solid #BB86FC;
+}
