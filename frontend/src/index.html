@@ -1,0 +1,50 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalCloud</title>
+    <link rel="stylesheet" href="./css/index_styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>  <!-- Markdown 解析 -->
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <header>
+        <div class="logo">LocalCloud</div>
+        <nav>
+            <ul>
+                <li><a href="#" id="cloudLink">云盘</a></li>
+                <li><a href="#" id="galleryLink">图库</a></li>  
+                <li><a href="#">系统设置</a></li>
+            </ul>
+        </nav>
+    
+        <!-- 用户头像 -->
+        <div class="user-menu">
+            <img id="userAvatar" src="./icon/default-avatar.png" alt="用户头像">
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="#" id="loginBtn">GitHub 登录</a>
+                <a href="#" id="logoutBtn" style="display: none;">退出登录</a>
+            </div>
+        </div>        
+    </header>   
+
+    <!-- 主体内容 -->
+    <main>
+        <section class="readme-content">
+            <h2>📌 项目介绍</h2>
+            <div id="readmeText">加载中...</div> <!-- 这里显示 GitHub README.md -->
+        </section>
+    </main>  
+
+    <!-- 底部 -->
+    <footer>
+        <p>&copy; 2025 LocalCloud</p>
+    </footer>
+
+    <script src="./js/script.js"></script>  <!-- 处理登录状态和菜单显示 -->
+    <script src="./js/readme.js"></script>  <!-- 读取 README.js -->
+</body>
+</html>
