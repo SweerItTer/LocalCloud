@@ -43,9 +43,9 @@ LocalCloud 旨在打造一款**轻量化、零成本、易部署**的私有云�
 
 1. **准备环境**: 安装 Docker 和 Docker Compose。
 2. **拉取代码**: `git clone https://github.com/SweerItTer/LocalCloud.git`
-3. **配置参数**: 修改 `.env` 文件，设置数据库连接信息、Cloudflare Tunnel 密钥等。
+3. **配置参数**: 修改 `/backend/.env` 文件，设置Github OAuth ID、数据库连接信息、Cloudflare Tunnel 密钥等。
 4. **启动服务**: `docker-compose up -d`
-5. **访问应用**: 在浏览器中输入 `http://localhost:8080`，即可开始使用。
+5. **访问应用**: 在浏览器中输入 `http://localhost`，即可开始使用。
 
 ## 参与贡献
 
@@ -63,7 +63,7 @@ LocalCloud 旨在打造一款**轻量化、零成本、易部署**的私有云�
 ## 联系我们
 
 * GitHub: [https://github.com/SweerItTer/LocalCloud](https://github.com/SweerItTer/LocalCloud)
-* Email: sweeritter@gmail.com
+* Email: sweeritter@gmail.com / xxxzhou_xian@1163.com
 
 ---
 
@@ -75,13 +75,4 @@ LocalCloud 旨在打造一款**轻量化、零成本、易部署**的私有云�
 * Golang
 * React
 * Flutter
-* ...
-
----
-
-## TODO
-
-* 完善文档
-* 实现核心功能
-* 编写测试用例
 * ...
