@@ -1,19 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const githubReadmeUrl = "https://raw.githubusercontent.com/SweerItTer/LocalCloud/main/README.md"; // 你的 GitHub README 直链
+    const githubReadmeUrl = "https://raw.githubusercontent.com/SweerItTer/LocalCloud/main/README.md";
 
     fetch(githubReadmeUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.text();
-        })
+        .then(response => response.ok ? response.text() : Promise.reject(`HTTP error! Status: ${response.status}`))
         .then(markdown => {
-            // 使用 marked.js 解析 Markdown 为 HTML
             document.getElementById("readmeText").innerHTML = marked.parse(markdown);
         })
         .catch(error => {
-            document.getElementById("readmeText").innerHTML = "<p>无法加载 README 文件</p>";
+            document.getElementById("readmeText").innerHTML = "<p style='color: red;'>无法加载 README 文件</p>";
             console.error("Error loading README.md:", error);
         });
 });

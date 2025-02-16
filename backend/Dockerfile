@@ -1,22 +1,40 @@
 # backend/Dockerfile
-FROM golang:1.23.6-alpine AS dev
 
-# 设置 Go 模块代理
-ENV GOPROXY=https://goproxy.cn,direct
+# 开发环境 Dockerfile (支持热重载)
+FROM golang:1.23.6-bullseye AS dev
 
-WORKDIR /go/src/app
+# 设置国内镜像和模块代理
+ENV GOPROXY=https://goproxy.cn,direct \
+    GO111MODULE=on \
+    CGO_ENABLED=0
 
-# 安装必要工具
-RUN apk add --no-cache git curl bash
+# 设置工作目录为模块路径
+WORKDIR /app
 
-COPY go.mod go.sum ./
-RUN go mod download
+# 安装基础工具链
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    bash \
+    gcc \
+    musl-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-# 安装 Air 以支持热重载
+# 安装 Air
 RUN curl -sSfL https://raw.githubusercontent.com/cosmtrek/air/master/install.sh | sh -s -- -b /usr/local/bin
 
-# 复制源码
-COPY . .
+# 预下载依赖 (利用 Docker 缓存层)
+COPY go.mod go.sum ./
+RUN go mod download && go mod verify
 
-# 重载
-CMD ["air"]
+# 复制 Air 配置文件
+COPY .air.toml ./
+
+# 复制项目文件 (排除不需要的目录)
+COPY cmd ./cmd
+COPY internal ./internal
+COPY pkg ./pkg
+
+
+# 启动热重载
+CMD ["air", "-c", ".air.toml"]

@@ -1,50 +1,43 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LocalCloud</title>
+    <link rel="icon" type="image/svg+xml" href="./icon/favicon.svg">
+    <title>LocalCloud 登录</title>
     <link rel="stylesheet" href="./css/index_styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>  <!-- Markdown 解析 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
+    <div class="container">
+        <!-- 左侧登录面板 -->
+        <div class="auth-panel">
+            <div class="logo">LocalCloud</div>
+            <div class="sub-text">私有云存储</div>
+            <span id="username">未登录</span>
 
-    <!-- 顶部导航栏 -->
-    <header>
-        <div class="logo">LocalCloud</div>
-        <nav>
-            <ul>
-                <li><a href="#" id="cloudLink">云盘</a></li>
-                <li><a href="#" id="galleryLink">图库</a></li>  
-                <li><a href="#">系统设置</a></li>
-            </ul>
-        </nav>
-    
-        <!-- 用户头像 -->
-        <div class="user-menu">
-            <img id="userAvatar" src="./icon/default-avatar.png" alt="用户头像">
-            <div class="dropdown-menu" id="dropdownMenu">
-                <a href="#" id="loginBtn">GitHub 登录</a>
-                <a href="#" id="logoutBtn" style="display: none;">退出登录</a>
+            <div class="auth-card">
+                <button id="githubLogin" class="login-btn github">
+                    <svg class="icon" viewBox="0 0 16 16" width="20" height="20">
+                        <path fill="white" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.015 8.015 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    使用 GitHub 登录
+                </button>
+                <div class="divider">或者</div>
+                <div class="email-section">
+                    <input id="email" type="email" class="email-input" placeholder="输入您的邮箱">
+                    <input id="password" type="password" class="password-input" placeholder="输入您的密码">
+                    <button id="emailLogin" class="login-btn github">继续</button>
+                </div>
+                <div class="legal-text">继续即表示您同意 <a href="#">使用条款</a> 和 <a href="#">隐私政策</a></div>
             </div>
-        </div>        
-    </header>   
-
-    <!-- 主体内容 -->
-    <main>
-        <section class="readme-content">
-            <h2>📌 项目介绍</h2>
-            <div id="readmeText">加载中...</div> <!-- 这里显示 GitHub README.md -->
-        </section>
-    </main>  
-
-    <!-- 底部 -->
-    <footer>
-        <p>&copy; 2025 LocalCloud</p>
-    </footer>
-
-    <script src="./js/script.js"></script>  <!-- 处理登录状态和菜单显示 -->
-    <script src="./js/readme.js"></script>  <!-- 读取 README.js -->
+        </div>
+        <!-- 右侧文档展示区 -->
+        <div class="docs-panel">
+            <div class="docs-content" id="readmeText">加载中...</div>
+        </div>
+    </div>
+    <script src="./js/auth.js"></script>
+    <script src="./js/readme.js"></script>
 </body>
 </html>

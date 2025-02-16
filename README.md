@@ -41,11 +41,13 @@ LocalCloud 旨在打造一款**轻量化、零成本、易部署**的私有云�
 
 ## 快速开始
 
-1. **准备环境**: 安装 Docker 和 Docker Compose。
+1. **准备环境**: 安装 Docker, Docker Compose, cloudflared
 2. **拉取代码**: `git clone https://github.com/SweerItTer/LocalCloud.git`
-3. **配置参数**: 修改 `.env` 文件，设置数据库连接信息、Cloudflare Tunnel 密钥等。
-4. **启动服务**: `docker-compose up -d`
-5. **访问应用**: 在浏览器中输入 `http://localhost:8080`，即可开始使用。
+3. **配置参数**: 
+   1. 配置`.env`的 TUNNEL_NAME, TUNNEL_DOMAIN 和 TUNNEL_API_DOMAIN (如果没有域名可以试试搜索 **USKG**)(如果是通过网页创建的隧道,需要到网站添加配置,需要填写的数据参考`./cloudflare/config.template.yml`,如果是控制台通过命令创建的,直接运行`setup-cloudflared.sh`即可)
+   2. 配置`./backend/.env`的 Github OAuth ID 和 数据库 相关配置
+4. **启动服务**: `docker-compose --env-file .env up -d`
+5. **访问应用**: 在浏览器中输入 `http://localhost`，即可访问网页服务(app服务待添加)
 
 ## 参与贡献
 

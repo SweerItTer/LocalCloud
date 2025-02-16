@@ -1,0 +1,10 @@
+tunnel: 2d74fd98-3a01-49da-b4ae-1419bd6bbd46
+credentials-file: /etc/cloudflared/credentials.json
+
+ingress:
+  - hostname: localcloud.us.kg
+    service: http://frontend:80
+  - hostname: api.localcloud.us.kg
+    service: http://backend:8080
+  # 兜底规则
+  - service: http_status:404
