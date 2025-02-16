@@ -1,4 +1,4 @@
 tree.txt
 .env
-config.yml
 credentials.json
+cloudflared/config.yml
