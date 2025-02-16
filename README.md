@@ -65,7 +65,7 @@ LocalCloud 旨在打造一款**轻量化、零成本、易部署**的私有云�
 ## 联系我们
 
 * GitHub: [https://github.com/SweerItTer/LocalCloud](https://github.com/SweerItTer/LocalCloud)
-* Email: sweeritter@gmail.com
+* Email: sweeritter@gmail.com / xxxzhou_xian@163.com
 
 ---
 
@@ -77,13 +77,4 @@ LocalCloud 旨在打造一款**轻量化、零成本、易部署**的私有云�
 * Golang
 * React
 * Flutter
-* ...
-
----
-
-## TODO
-
-* 完善文档
-* 实现核心功能
-* 编写测试用例
 * ...
